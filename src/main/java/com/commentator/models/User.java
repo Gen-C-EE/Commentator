@@ -1,6 +1,4 @@
 package com.commentator.models;
-
-
 import javax.persistence.*;
 
 
@@ -15,10 +13,12 @@ public class User {
     private String email;
     private String password;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "history_id")
     private History history;
 
+
+    public User(){};
 
     public User(String userName, String email, String password) {
         this.userName = userName;
@@ -35,8 +35,6 @@ public class User {
     public void setHistory(History history) {
         this.history = history;
     }
-
-
 
     public Long getId() {
         return id;
@@ -69,5 +67,11 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString(){
+        return ""+userName+"\n"+email+"\n"+password+"\n"+history;
+
     }
 }

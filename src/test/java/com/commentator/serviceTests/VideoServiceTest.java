@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class videoServiceTest {
+public class VideoServiceTest {
     @Mock
     private VideoRepository videoRepository;
 
@@ -27,8 +27,7 @@ public class videoServiceTest {
     @Test
     public void saveVideo_savesTheVideo(){
         Video video = new Video("testWatchId");
-
-        videoService.saveVideo(video);
+        this.videoService.saveVideo(video);
         verify(videoRepository,times(1)).save(video);
     }
 

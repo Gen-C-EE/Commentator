@@ -1,6 +1,8 @@
 package com.commentator.repositoryTests;
 
+import com.commentator.models.Comment;
 import com.commentator.models.User;
+import com.commentator.repositories.CommentRepository;
 import com.commentator.repositories.UserRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,20 +16,20 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UserRepositoryTest {
+public class CommentRepositoryTest {
     @Autowired
     private TestEntityManager testEntityManager;
 
     @Autowired
-    private UserRepository userRepository;
+    private CommentRepository commentRepository;
 
 
     @Test
     public void repoSavesInDB() throws Exception{
-        User user = new User("username", "email@email.com", "password");
-        Long id = testEntityManager.persistAndGetId(user, Long.class);
-        User found = userRepository.findById(id).orElse(null);
-        assertEquals(found.getUserName(),user.getUserName());
+        Comment comment = new Comment(null, "test comment text", null, "testTimeStamp", null);
+        Long id = testEntityManager.persistAndGetId(comment, Long.class);
+        Comment found = commentRepository.findById(id).orElse(null);
+        assertEquals(found.getText(),comment.getText());
     }
 
 

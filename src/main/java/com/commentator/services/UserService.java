@@ -18,7 +18,7 @@ public class UserService {
         return this.repo.save(user);
     }
 
-    public User getUser(@Min(value = 1L, message = "Invalid product ID.") Long id){
+    public User getUser(@Min(value = 1L, message = "Invalid id") Long id){
         return repo.findById(id).orElse(null);
     }
 

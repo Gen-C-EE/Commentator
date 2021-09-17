@@ -1,8 +1,10 @@
 package com.commentator.services;
 
 
+import com.commentator.models.Comment;
 import com.commentator.models.User;
 import com.commentator.models.Video;
+import com.commentator.repositories.CommentRepository;
 import com.commentator.repositories.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,20 +12,20 @@ import org.springframework.stereotype.Service;
 import javax.validation.constraints.Min;
 
 @Service
-public class VideoService {
+public class CommentService {
 
-    private VideoRepository repo;
+    private CommentRepository repo;
 
     @Autowired
-    public VideoService(VideoRepository repo){
+    public CommentService(CommentRepository repo){
         this.repo = repo;
     }
 
-    public Video saveVideo(Video video){
-        return this.repo.save(video);
+    public Comment saveComment(Comment comment){
+        return this.repo.save(comment);
     }
 
-    public Video getVideo(@Min(value = 1L, message = "Invalid id") Long id){
+    public Comment getComment(@Min(value = 1L, message = "Invalid id") Long id){
         return repo.findById(id).orElse(null);
     }
 

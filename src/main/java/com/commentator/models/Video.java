@@ -47,4 +47,10 @@ public class Video {
     public void setCommentList(List<Comment> commentList) {
         this.commentList = commentList;
     }
+
+    @Override
+    public String toString(){
+        return ""+id+"\n"+watchID+"\n"+commentList+"\n";
+
+    }
 }

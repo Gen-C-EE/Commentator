@@ -4,8 +4,8 @@ import com.commentator.controllers.UserController;
 import com.commentator.models.User;
 import com.commentator.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,8 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(UserController.class)
 @RunWith(SpringRunner.class)
+@WebMvcTest(UserController.class)
 public class UserControllerTest {
 
     @Autowired
@@ -40,7 +40,7 @@ public class UserControllerTest {
     @Autowired
     ObjectMapper objectMapper;
 
-    @BeforeEach
+    @Before
     public void setup() {
         user = new User("username", "email@email.com", "password");
     }
@@ -54,5 +54,13 @@ public class UserControllerTest {
         verify(userService,times(1)).saveUser(any(User.class));
     }
 
-
+    @Test
+    public void userControllerGet_findsTheUser() throws Exception{
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/users/1")
+                .contentType(MediaType.APPLICATION_JSON);
+        user.setId((long)1);
+        when(userService.getUser((long) 1)).thenReturn(user);
+        mockMvc.perform(builder).andExpect(status().isOk());
+        verify(userService,times(1)).getUser(anyLong());
+    }
 }
