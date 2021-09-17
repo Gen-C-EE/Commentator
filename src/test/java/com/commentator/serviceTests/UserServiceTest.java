@@ -34,7 +34,6 @@ public class UserServiceTest {
 
         userService.saveUser(user);
         verify(userRepository,times(1)).save(user);
-
     }
 
 }

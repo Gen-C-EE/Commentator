@@ -19,6 +19,7 @@ public class Comment {
     private Comment parent;
     private String timestamp;
 
+
     @ManyToOne
     @JoinColumn(name="video_id")
     private Video video;

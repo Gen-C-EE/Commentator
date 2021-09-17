@@ -53,6 +53,8 @@ public class CommentControllerTest {
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/comments")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comment));
+        System.out.println("HERE");
+        System.out.println(objectMapper.writeValueAsString(comment));
         mockMvc.perform(builder).andExpect(status().isOk());
         verify(commentService,times(1)).saveComment(any(Comment.class));
     }
