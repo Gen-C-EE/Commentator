@@ -28,7 +28,7 @@ public class Comment {
 
     private String timestamp;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name="video_id")
     private Video video;
 
@@ -113,5 +113,19 @@ public class Comment {
 
     public void setVideo(Video video) {
         this.video = video;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", author=" + author +
+                ", text='" + text + '\'' +
+                ", parent=" + parent +
+                ", replies=" + replies +
+                ", timestamp='" + timestamp + '\'' +
+                ", video=" + video +
+                ", top=" + top +
+                '}';
     }
 }

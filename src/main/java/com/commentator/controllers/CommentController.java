@@ -21,7 +21,9 @@ public class CommentController {
 
     @PostMapping("/comments")
     public ResponseEntity<Video> postComment(@RequestBody Comment comment){
+        System.out.println(comment);
         Comment newComment = this.service.saveComment(comment);
+        System.out.println(newComment);
         return new ResponseEntity(newComment, HttpStatus.OK);
     }
 

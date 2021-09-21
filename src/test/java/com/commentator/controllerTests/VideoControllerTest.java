@@ -56,12 +56,12 @@ public class VideoControllerTest {
     public void videoControllerGet_findsTheVideo() throws Exception{
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/videos/1")
                 .contentType(MediaType.APPLICATION_JSON);
-        video.setId((long)1);
+        //video.setId((long)1);
         System.out.println("HERE");
         System.out.println(objectMapper.writeValueAsString(video));
-        when(videoService.getVideo((long) 1)).thenReturn(video);
+        when(videoService.getVideo("testWatchId")).thenReturn(video);
         mockMvc.perform(builder).andExpect(status().isOk());
-        verify(videoService,times(1)).getVideo(anyLong());
+        verify(videoService,times(1)).getVideo(anyString());
     }
 
 }

@@ -23,11 +23,13 @@ public class VideoService {
         return this.repo.save(video);
     }
 
-    public Video getVideo(@Min(value = 1L, message = "Invalid id") Long id){
+    public Video getVideo(String id){
         return repo.findById(id).orElse(null);
     }
+
+    /*
     public Video getVideoByWatchId(@Min(value = 1L, message = "Invalid id") Long id){
         return repo.findById(id).orElse(null);
-    }
+    }*/
 
 }

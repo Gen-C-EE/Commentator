@@ -9,9 +9,6 @@ import java.util.*;
 @Table(name="videos")
 public class Video {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     private String watchID;
 
     @OneToMany(mappedBy = "video", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -25,7 +22,7 @@ public class Video {
     public Video(String watchID) {
         this.watchID = watchID;
     }
-
+/*
     public Long getId() {
         return id;
     }
@@ -33,7 +30,7 @@ public class Video {
     public void setId(Long id) {
         this.id = id;
     }
-
+*/
     public String getWatchID() {
         return watchID;
     }
@@ -52,8 +49,10 @@ public class Video {
     }
 
     @Override
-    public String toString(){
-        return ""+id+"\n"+watchID+"\n"+commentList+"\n";
-
+    public String toString() {
+        return "Video{" +
+                "watchID='" + watchID + '\'' +
+                ", commentList=" + commentList +
+                '}';
     }
 }
