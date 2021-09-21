@@ -40,7 +40,7 @@ public class CommentServiceTest {
 
     @Test
     public void saveComment_savesTheComment(){
-        Comment comment = new Comment(user, "test comment text", parent, "testTimeStamp", video);
+        Comment comment = new Comment(user, "test comment text", parent, "testTimeStamp",video,true);
         commentService.saveComment(comment);
         verify(commentRepository,times(1)).save(comment);
     }

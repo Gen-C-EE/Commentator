@@ -1,5 +1,7 @@
 package com.commentator.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -40,6 +42,7 @@ public class Video {
         this.watchID = watchID;
     }
 
+    @JsonManagedReference(value="video")
     public List<Comment> getCommentList() {
         return commentList;
     }

@@ -26,5 +26,8 @@ public class VideoService {
     public Video getVideo(@Min(value = 1L, message = "Invalid id") Long id){
         return repo.findById(id).orElse(null);
     }
+    public Video getVideoByWatchId(@Min(value = 1L, message = "Invalid id") Long id){
+        return repo.findById(id).orElse(null);
+    }
 
 }

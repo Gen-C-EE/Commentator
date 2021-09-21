@@ -26,7 +26,7 @@ public class CommentRepositoryTest {
 
     @Test
     public void repoSavesInDB() throws Exception{
-        Comment comment = new Comment(null, "test comment text", null, "testTimeStamp", null);
+        Comment comment = new Comment(null, "test comment text", null, "testTimeStamp",null,true);
         Long id = testEntityManager.persistAndGetId(comment, Long.class);
         Comment found = commentRepository.findById(id).orElse(null);
         assertEquals(found.getText(),comment.getText());
