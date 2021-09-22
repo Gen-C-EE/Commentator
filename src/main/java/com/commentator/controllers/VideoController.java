@@ -1,5 +1,6 @@
 package com.commentator.controllers;
 
+import com.commentator.models.Comment;
 import com.commentator.models.User;
 import com.commentator.models.Video;
 import com.commentator.services.VideoService;
@@ -8,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 @RestController
 public class VideoController {
 
@@ -29,6 +33,10 @@ public class VideoController {
         return this.service.getVideo(id);
     }
 
+    @GetMapping("/videos/{id}/comments")
+    public List<Comment> getVideoComments(@PathVariable String id) {
+        return this.service.getVideoComments(id);
+    }
 
 
 }
