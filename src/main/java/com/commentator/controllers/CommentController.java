@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 public class CommentController {
 
@@ -22,9 +22,9 @@ public class CommentController {
 
     @PostMapping("/comments")
     public ResponseEntity<Video> postComment(@RequestBody Comment comment){
-        System.out.println(comment);
+        //System.out.println(comment);
         Comment newComment = this.service.saveComment(comment);
-        System.out.println(newComment);
+        //System.out.println(newComment);
         return new ResponseEntity(newComment, HttpStatus.OK);
     }
 

@@ -22,6 +22,12 @@ public class Video {
     public Video(String watchID) {
         this.watchID = watchID;
     }
+
+    public Video(String watchID,List<Comment> commentList){
+        this.watchID = watchID;
+        this.commentList = commentList;
+    }
+
 /*
     public Long getId() {
         return id;
@@ -31,6 +37,7 @@ public class Video {
         this.id = id;
     }
 */
+
     public String getWatchID() {
         return watchID;
     }

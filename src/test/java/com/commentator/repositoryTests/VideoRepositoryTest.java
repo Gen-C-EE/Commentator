@@ -26,7 +26,7 @@ public class VideoRepositoryTest {
     @Test
     public void repoSavesInDB() throws Exception{
         Video video = new Video("testWatchId");
-        Long id = testEntityManager.persistAndGetId(video, Long.class);
+        String id = testEntityManager.persistAndGetId(video, String.class);
         Video found = videoRepository.findById(id).orElse(null);
         assertEquals(found.getWatchID(),video.getWatchID());
     }

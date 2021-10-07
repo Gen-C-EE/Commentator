@@ -13,9 +13,9 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User author;
+    //@ManyToOne
+    //@JoinColumn(name="user_id")
+    private String author;
 
     private String text;
 
@@ -39,7 +39,7 @@ public class Comment {
     }
 
 
-    public Comment(User author, String text, Comment parent, String timestamp, Video video, boolean top) {
+    public Comment(String author, String text, Comment parent, String timestamp, Video video, boolean top) {
         this.author = author;
         this.text = text;
         this.parent = parent;
@@ -74,11 +74,11 @@ public class Comment {
         this.id = id;
     }
 
-    public User getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
