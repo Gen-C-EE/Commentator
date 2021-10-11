@@ -49,7 +49,7 @@ public class CommentControllerTest {
 
     @Test
     public void postingComment_savesTheComment() throws Exception{
-        Comment comment = new Comment(user, "test comment text", parent, "testTimeStamp",video,true);
+        Comment comment = new Comment("username", "test comment text", parent, "testTimeStamp",video,true);
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/comments")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comment));
