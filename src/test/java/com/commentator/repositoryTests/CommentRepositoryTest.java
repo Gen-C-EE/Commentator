@@ -4,6 +4,7 @@ import com.commentator.models.Comment;
 import com.commentator.models.User;
 import com.commentator.repositories.CommentRepository;
 import com.commentator.repositories.UserRepository;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
@@ -23,7 +24,7 @@ public class CommentRepositoryTest {
     @Autowired
     private CommentRepository commentRepository;
 
-
+    @Ignore
     @Test
     public void repoSavesInDB() throws Exception{
         Comment comment = new Comment(null, "test comment text", null, "testTimeStamp",null,true);
