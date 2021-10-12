@@ -9,12 +9,15 @@ import com.commentator.repositories.VideoRepository;
 import com.commentator.services.CommentService;
 import com.commentator.services.UserService;
 import com.commentator.services.VideoService;
+import org.hibernate.mapping.Any;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.hamcrest.Matchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -44,7 +47,5 @@ public class CommentServiceTest {
         commentService.saveComment(comment);
         verify(commentRepository,times(1)).save(comment);
     }
-
-
 
 }

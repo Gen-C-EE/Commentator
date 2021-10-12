@@ -29,4 +29,17 @@ public class CommentService {
         return repo.findById(id).orElse(null);
     }
 
+    public Comment editComment(long id,String newText) {
+        Comment comment = repo.findById(id).get();
+        comment.setText(newText);
+        return this.repo.save(comment);
+    }
+
+    public Comment deleteComment(long id) {
+        Comment comment = repo.findById(id).get();
+        comment.setText("[deleted]");
+        comment.setAuthor("[deleted]");
+        return this.repo.save(comment);
+    }
+
 }

@@ -33,6 +33,14 @@ public class CommentController {
         return this.service.getComment(id);
     }
 
+    @PatchMapping("/comments/{id}")
+    public Comment editComment(@PathVariable Long id, @RequestBody String newText) {
+        return this.service.editComment(id,newText);
+    }
 
+    @PatchMapping("/comments/{id}/delete")
+    public Comment deleteComment(@PathVariable Long id) {
+        return this.service.deleteComment(id);
+    }
 
 }

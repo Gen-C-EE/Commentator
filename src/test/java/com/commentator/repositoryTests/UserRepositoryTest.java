@@ -22,7 +22,6 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-
     @Ignore
     @Test
     public void repoSavesInDB() throws Exception{
@@ -31,6 +30,4 @@ public class UserRepositoryTest {
         User found = userRepository.findById(id).orElse(null);
         assertEquals(found.getUserName(),user.getUserName());
     }
-
-
 }
